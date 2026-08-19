@@ -13,3 +13,4 @@ Fresh rebuild of the Human Override advocacy website.
 ## Hero asset credits
 - Earth imagery: NASA Goddard Space Flight Center, Black Marble 2016.
 - Fingerprint vector: Wikimedia Commons “Fingerprint picture.svg”, Wilfredor, CC BY-SA 3.0; recolored for this site.
+new revision
