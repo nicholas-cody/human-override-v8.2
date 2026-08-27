@@ -351,3 +351,168 @@ footer{padding:28px 0 35px}.footer{display:grid;grid-template-columns:1fr 1.5fr 
       linear-gradient(90deg,#030405 0%,rgba(3,4,5,.20) 56%,transparent);
   }
 }
+
+/* =========================================================
+   CENTERED LAYOUT FIX — production override
+   Preserves approved artwork, wording, interactions, and
+   section order. Aligns all major desktop sections to one
+   consistent centered content frame.
+   ========================================================= */
+
+@media (min-width: 921px) {
+  :root{
+    --site-max: 1440px;
+    --site-gutter: 36px;
+  }
+
+  .wrap{
+    width:min(var(--site-max), calc(100% - (var(--site-gutter) * 2))) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  /* Header */
+  .site-header .nav{
+    width:min(var(--site-max), calc(100% - (var(--site-gutter) * 2))) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  /* HERO — keep live copy and approved art visually balanced */
+  .hero-v8{
+    height:700px !important;
+  }
+
+  .hero-v8-content{
+    position:relative !important;
+    z-index:3 !important;
+    height:100% !important;
+    display:grid !important;
+    grid-template-columns:42% 58% !important;
+    align-items:center !important;
+  }
+
+  .hero-v8 .hero-copy{
+    width:auto !important;
+    max-width:500px !important;
+    margin-top:0 !important;
+    grid-column:1 !important;
+  }
+
+  .hero-v82-visual{
+    position:absolute !important;
+    inset:76px 0 0 !important;
+    overflow:hidden !important;
+  }
+
+  .hero-v82-approved-art{
+    position:absolute !important;
+    top:50% !important;
+    right:max(var(--site-gutter), calc((100vw - var(--site-max))/2)) !important;
+    transform:translateY(-50%) !important;
+    width:min(57vw, 980px) !important;
+    max-width:none !important;
+    height:auto !important;
+    object-fit:contain !important;
+    object-position:center !important;
+  }
+
+  .hero-v82-visual:after{
+    background:
+      linear-gradient(
+        90deg,
+        #030405 0%,
+        rgba(3,4,5,.99) 14%,
+        rgba(3,4,5,.93) 24%,
+        rgba(3,4,5,.70) 34%,
+        rgba(3,4,5,.24) 47%,
+        transparent 60%
+      ) !important;
+  }
+
+  /* WHY THIS MATTERS — same centered shell, predictable split */
+  .why-layout{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:42% 58% !important;
+    min-height:355px !important;
+    align-items:stretch !important;
+  }
+
+  .why-image{
+    min-height:355px !important;
+    background-position:center center !important;
+  }
+
+  .why-copy{
+    padding:30px 0 20px 42px !important;
+  }
+
+  /* MISSION — artwork aligns to shell rather than viewport edge */
+  .mission{
+    min-height:300px !important;
+  }
+
+  .mission-bg{
+    left:max(var(--site-gutter), calc((100vw - var(--site-max))/2)) !important;
+    top:0 !important;
+    bottom:0 !important;
+    width:42% !important;
+    right:auto !important;
+    background-position:center center !important;
+    background-size:cover !important;
+  }
+
+  .mission-layout{
+    width:min(var(--site-max), calc(100% - (var(--site-gutter) * 2))) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    display:grid !important;
+    grid-template-columns:42% 58% !important;
+    align-items:center !important;
+    padding:32px 0 !important;
+  }
+
+  .mission-copy{
+    grid-column:2 !important;
+    margin-left:0 !important;
+    max-width:760px !important;
+    padding-left:42px !important;
+  }
+
+  /* Keep the remaining major sections on exactly the same frame */
+  .principles > .wrap,
+  .issues > .wrap,
+  .action > .wrap,
+  footer > .wrap{
+    width:min(var(--site-max), calc(100% - (var(--site-gutter) * 2))) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  /* Prevent visual drift on ultrawide monitors */
+  @media (min-width: 1800px) {
+    :root{
+      --site-max: 1500px;
+      --site-gutter: 42px;
+    }
+
+    .hero-v82-approved-art{
+      width:min(54vw, 1000px) !important;
+    }
+  }
+}
+
+/* Preserve mobile/tablet stacking and remove desktop offsets there */
+@media (max-width: 920px){
+  .mission-bg{
+    left:0 !important;
+    width:100% !important;
+  }
+
+  .mission-copy{
+    margin-left:0 !important;
+    padding-left:0 !important;
+  }
+}
+
